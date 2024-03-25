@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Products as list";
+}
+@model IEnumerable<Product>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .product {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1 class="display-4">List of all products</h1>
+            @foreach (var product in Model)
+            {
+                <div class="product">
+                    <p><strong>@product.Id.</strong> @product.Name - @product.Price (Created: @product.CreatedDate.ToShortDateString())</p>
+                </div>
+            }
+            <p style="font-size:20px"><a href="/Home/Index">Back to main page</a></p>
+        </div>
+    </div>
+</body>
+</html>
